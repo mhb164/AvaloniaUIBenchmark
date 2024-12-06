@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:AvaloniaUIBenchmark.ViewModels"
+			 mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="32"
+             x:Class="AvaloniaUIBenchmark.Views.HeaderBar"
+             x:DataType="vm:HeaderBarViewModel">
+	<Design.DataContext>
+		<vm:HeaderBarViewModel />
+	</Design.DataContext>
+
+	<DockPanel LastChildFill="True">
+		<StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+			<TextBlock VerticalAlignment="Center" >
+				Theme
+			</TextBlock>
+			<ToggleSwitch Command="{Binding SwitchThemeCommand}" Margin="4,0,-8,0"  OnContent="" OffContent="" />
+		</StackPanel>
+		<TextBlock Text="{Binding Title}" VerticalAlignment="Center" Margin="6,0,0,0"/>
+	</DockPanel>
+</UserControl>

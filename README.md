@@ -7,3 +7,6 @@ Create new project from **Avalonia Cross Platform Application** template
 ```
 dotnet new avalonia.xplat -o AvaloniaUIBenchmark
 ```
+
+## Step 2 - Simple change 
+Add Header bar with switch theme option

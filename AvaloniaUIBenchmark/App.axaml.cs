@@ -6,13 +6,20 @@ using System.Linq;
 using Avalonia.Markup.Xaml;
 using AvaloniaUIBenchmark.ViewModels;
 using AvaloniaUIBenchmark.Views;
+using System;
+using Avalonia.Controls;
+using Avalonia.Styling;
 
 namespace AvaloniaUIBenchmark;
 
 public partial class App : Application
-{
+{    
+    public const string Version = "1.2";
+    private static App? _instance;
+
     public override void Initialize()
     {
+        _instance = this;
         AvaloniaXamlLoader.Load(this);
     }
 
@@ -51,4 +58,19 @@ public partial class App : Application
             BindingPlugins.DataValidators.Remove(plugin);
         }
     }
+
+    public static void SwitchTheme()
+        => _instance?.SwitchThemeInternal();
+
+    private void SwitchThemeInternal()
+    {
+        if(RequestedThemeVariant == ThemeVariant.Dark)
+        {
+            RequestedThemeVariant = ThemeVariant.Light;
+            return;
+        }
+
+        RequestedThemeVariant = ThemeVariant.Dark;
+    }
+
 }
